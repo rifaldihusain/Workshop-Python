@@ -1,8 +1,6 @@
 # minggu-02
 
-# Penjelasan Tentang Tutorial Python pada bab - 4
-
-- https://docs.python.org/3/tutorial/controlflow.html
+# Penjelasan Tentang Tutorial Python pada [bab - 4](https://docs.python.org/3/tutorial/controlflow.html)
 
 	pada workshop ini kita membuat script python yang ada dalam masing - masing sub bab - 4
 	
