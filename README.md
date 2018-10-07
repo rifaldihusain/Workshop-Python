@@ -8,9 +8,9 @@
   untuk minggu-minggu berikutnya.
   
 
-	<code>- workshop-python</code>
-	<code>|</code>
-	<code>+--minggu-01</code>
+	- workshop-python</code>
+	|
+	+--minggu-01
 	|    |
 	|    +-- teori
 	|    | 
