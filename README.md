@@ -7,8 +7,8 @@
   di file **README.md.** Di direktori **src**, buat berbagai *source code* yang ada pada minggu tersebut. Demikian seterusnya
   untuk minggu-minggu berikutnya.
   
-*
-	- workshop-python
+
+	<code>- workshop-python
 	|
 	+--minggu-01
 	|    |
@@ -34,7 +34,7 @@
 	|    |
 	|    +-- src
 	|
-   
+	</code>
    
 # Peserta
 
