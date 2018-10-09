@@ -24,12 +24,22 @@
   |    +-- teori - README.md
   |    | 
   |    +-- src
-  |
-  .....
-  .....
-   dan seterusnya
+  |    |
+  +--minggu-04
+  |    |
+  |    +-- teori - README.md
+  |    | 
+  |    +-- src
+  |    |
+  +--minggu-05
+  |    |
+  |    +-- teori - README.md
+  |    | 
+  |    +-- src
+  |    |
+  
 ```
 
 # Peserta
 
-* [TA 2018-2019](2018-2019/)
+* [TA 2018-2019](https://github.com/oldstager/academic/tree/master/lectures/workshop-python/2018-2019)
