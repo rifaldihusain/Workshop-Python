@@ -37,6 +37,24 @@
   |    | 
   |    +-- src
   |    |
+  +--minggu-06
+  |    |
+  |    +-- teori - README.md
+  |    | 
+  |    +-- src
+  |    |
+  +--minggu-07
+  |    |
+  |    +-- teori - README.md
+  |    | 
+  |    +-- src
+  |    |
+  +--minggu-08
+  |    |
+  |    +-- teori - README.md
+  |    | 
+  |    +-- src
+  |    |
   
 ```
 
