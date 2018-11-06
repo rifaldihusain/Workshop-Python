@@ -11,8 +11,6 @@ fib(2000)
 
 
 
-
-
 fib
 
 f = fib
@@ -21,16 +19,8 @@ f(100)
 
 
 
-
-
 fib(0)
 print(fib(0))
-
-
-
-
-
-
 
 
 
@@ -45,3 +35,4 @@ def fib2(n):  # return Fibonacci series up to n
 
 f100 = fib2(100)    # call it
 f100                # write the result
+

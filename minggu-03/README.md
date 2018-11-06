@@ -1,6 +1,6 @@
 # minggu-03
 
-# Tutorial Struktur Data pada [Bab - 5](https://docs.python.org/3/tutorial/datastructures.html)
+# Tutorial Modul pada [Bab - 5](https://docs.python.org/3/tutorial/datastructures.html)
 
 5.1 More on Lists
 

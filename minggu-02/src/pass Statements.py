@@ -3,7 +3,6 @@ while True:
 	
 	
 	
-
 	
 class MyEmptyClass:
     pass
