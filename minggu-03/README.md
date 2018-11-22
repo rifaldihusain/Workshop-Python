@@ -2,7 +2,8 @@
 
 # Tutorial Modul pada [Bab - 5](https://docs.python.org/3/tutorial/datastructures.html)
 
-5.1 More on Lists
+**5.1 More on Lists**
+	Bab ini menjelaskan beberapa hal yang sudah Anda pelajari dengan lebih detail, dan menambahkan beberapa hal baru.
 
 	5.1.1 Using Lists as Stacks
 	5.1.2 Using Lists as Queues
