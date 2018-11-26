@@ -2,19 +2,52 @@
 
 # Tutorial Modul pada [Bab - 6](https://docs.python.org/3/tutorial/modules.html)
 
-6. Modules
-	
-	6.1 More on Modules
+**6. Modules**
+	 - Jika Anda keluar dari interpreter Python dan memasukkannya lagi, definisi 	  yang Anda buat (fungsi dan variabel) hilang. Oleh karena itu, jika Anda 		  ingin menulis program yang agak lebih panjang, Anda lebih baik menggunakan 	  editor teks untuk menyiapkan masukan bagi juru bahasa dan menjalankannya       dengan file itu sebagai masukan. Ini dikenal sebagai membuat skrip. Seiring    program Anda menjadi lebih panjang, Anda mungkin ingin membaginya menjadi      beberapa file untuk memudahkan perawatan. Anda mungkin juga ingin              menggunakan fungsi berguna yang telah Anda tulis di beberapa program tanpa     menyalin definisinya ke dalam setiap program.
+	   Untuk mendukung ini, Python memiliki cara untuk menempatkan definisi dalam file dan menggunakannya dalam skrip atau dalam contoh interaktif dari interpreter. File seperti itu disebut modul; definisi dari modul dapat diimpor ke modul lain atau ke dalam modul utama (kumpulan variabel yang Anda miliki akses ke skrip yang dijalankan di tingkat atas dan dalam mode kalkulator).
+	   Modul adalah file yang berisi definisi dan pernyataan Python. Nama file adalah nama modul dengan akhiran .py ditambahkan. Dalam modul, nama modul (sebagai string) tersedia sebagai nilai variabel global __name__. Misalnya, gunakan editor teks favorit Anda untuk membuat file bernama fibo.py di direktori saat ini
+
+**6.1 More on Modules**
+	  - Modul dapat berisi pernyataan yang dapat dieksekusi serta definisi 		  		fungsi. Pernyataan-pernyataan ini dimaksudkan untuk menginisialisasi        	modul. Mereka dieksekusi hanya saat pertama kali nama modul ditemukan 	  		dalam pernyataan impor. [1] (Mereka juga dijalankan jika file dijalankan    	sebagai skrip.)
+	  	Setiap modul memiliki tabel simbol pribadi, yang digunakan sebagai tabel simbol global oleh semua fungsi yang didefinisikan dalam modul. Dengan demikian, penulis modul dapat menggunakan variabel global dalam modul tanpa mengkhawatirkan bentrokan yang tidak disengaja dengan variabel global pengguna. Di sisi lain, jika Anda tahu apa yang Anda lakukan, Anda dapat menyentuh variabel global modul dengan notasi yang sama yang digunakan untuk merujuk fungsinya, modname.itemname.
+	  	Modul dapat mengimpor modul lain. Ini adalah kebiasaan tetapi tidak diperlukan untuk menempatkan semua pernyataan impor di awal modul (atau skrip, dalam hal ini). Nama modul yang diimpor ditempatkan di tabel simbol global modul impor.
+
 	6.1.1 Executing modules as scripts
+		  - Ketika Anda menjalankan modul Python dengan kode dalam modul akan 			dieksekusi, sama seperti jika Anda mengimpornya, tetapi dengan __name__ 	ditetapkan ke "__main__". Itu berarti bahwa dengan menambahkan kode ini 	di akhir modul Anda dapat menjadikan file dapat digunakan sebagai skrip 	dan juga modul yang dapat diimpor, karena kode yang mem-parsing baris 		perintah hanya berjalan jika modul dijalankan sebagai file "utama":
+		  	Jika modul diimpor, kod Ini sering digunakan baik untuk menyediakan antarmuka pengguna yang nyaman ke modul, atau untuk tujuan pengujian (menjalankan modul sebagai skrip mengeksekusi rangkaian uji).
+
 	6.1.2 The Module Search Path
+		  - Ketika sebuah modul bernama spam diimpor, interpreter pertama mencari 		modul built-in dengan nama itu. Jika tidak ditemukan, kemudian mencari 		file bernama spam.py dalam daftar direktori yang diberikan oleh 			sys.path variabel. sys.path
+		  	Direktori yang berisi skrip input (atau direktori saat ini ketika tidak ada file yang ditentukan).
+		  	PYTHONPATH (daftar nama direktori, dengan sintaks yang sama dengan PATH variabel shell).Standar yang tergantung pada instalasi.
+			Pada sistem file yang mendukung symlink, direktori yang berisi skrip input dihitung setelah symlink diikuti. Dengan kata lain direktori yang mengandung symlink tidak ditambahkan ke jalur pencarian modul.
+			Setelah inisialisasi, program Python dapat memodifikasi sys.path. Direktori yang berisi skrip yang dijalankan ditempatkan di awal jalur pencarian, di depan jalur perpustakaan standar. Ini berarti skrip di direktori itu akan dimuat alih-alih modul dengan nama yang sama di direktori pustaka. Ini adalah kesalahan kecuali pengganti itu dimaksudkan. Lihat bagian Modul Standar untuk informasi lebih lanjut.
+
 	6.1.3 "Compiled" Python files
-	
-6.2 Standard Modules
+		  - Untuk mempercepat modul pemuatan, Python menyimpan versi terkompilasi 		dari setiap modul dalam direktori __pycache__ di bawah nama 				module.version.pyc, di mana versi mengkodekan format file yang 				dikompilasi; biasanya berisi nomor versi Python. Sebagai contoh, dalam 		CPython rilis 3.3 versi yang dikompilasi dari spam.py akan di-cache 		sebagai __pycache __ / spam.cpython-33.pyc. Konvensi penamaan ini 			memungkinkan modul yang dikompilasi dari rilis yang berbeda dan versi 		Python yang berbeda untuk hidup berdampingan.
+		  	Python memeriksa tanggal modifikasi dari sumber terhadap versi yang dikompilasi untuk melihat apakah sudah kedaluwarsa dan perlu dikompilasi ulang. Ini adalah proses yang sepenuhnya otomatis. Juga, modul yang dikompilasi adalah platform-independen, sehingga perpustakaan yang sama dapat dibagi di antara sistem dengan arsitektur yang berbeda.
+			Python tidak memeriksa cache dalam dua keadaan. Pertama, selalu mengkompilasi ulang dan tidak menyimpan hasil untuk modul yang dimuat langsung dari baris perintah. Kedua, tidak memeriksa cache jika tidak ada modul sumber. Untuk mendukung distribusi non-sumber (yang dikompilasi saja), modul yang dikompilasi harus berada di direktori sumber, dan tidak boleh ada modul sumber.
 
-6.3 The dir() Function
+**6.2 Standard Modules**
+	  - Python dilengkapi dengan pustaka modul standar, yang dijelaskan dalam 			dokumen terpisah, Referensi Perpustakaan Python ("Referensi Perpustakaan" 		selanjutnya). Beberapa modul dibangun ke interpreter; ini memberikan akses 		ke operasi yang bukan bagian dari inti bahasa tetapi tetap dibangun, baik 		untuk efisiensi atau untuk menyediakan akses ke primitif sistem operasi 		seperti panggilan sistem. Kumpulan modul tersebut adalah opsi konfigurasi 		yang juga bergantung pada platform yang mendasarinya. Sebagai contoh, modul 	winreg hanya disediakan pada sistem Windows. Satu modul tertentu layak 			mendapat perhatian: sys, yang dibangun ke setiap interpreter Python. 			Variabel sys.ps1 dan sys.ps2 menentukan string yang digunakan sebagai 			petunjuk utama dan sekunder
+	  	Kedua variabel ini hanya ditentukan jika interpreter berada dalam mode interaktif.
+		Variabel sys.path adalah daftar string yang menentukan jalur penelusuran interpreter untuk modul. Ini diinisialisasi ke jalur default yang diambil dari variabel lingkungan PYTHONPATH, atau dari bawaan bawaan jika PYTHONPATH tidak disetel. Anda dapat memodifikasinya menggunakan operasi daftar standar
 
-6.4 Packages
+**6.3 The dir() Function**
+	  - Dir fungsi built-in () digunakan untuk mencari tahu nama-nama yang 				didefinisikan oleh sebuah modul. Ini mengembalikan daftar string yang 			diurutkan Tanpa argumen, dir () mencantumkan nama yang telah Anda tentukan 		saat ini Perhatikan bahwa ini mencantumkan semua jenis nama: variabel, 			modul, fungsi, dll.dir () tidak mencantumkan nama fungsi dan variabel 			bawaan. Jika Anda ingin daftar mereka, mereka didefinisikan dalam builtins 		modul standar
+
+**6.4 Packages**
+	  - Paket adalah cara menyusun ruang nama modul Python dengan menggunakan "nama 	modul bertitik". Misalnya, nama modul AB menunjuk submodul bernama B dalam 		paket bernama A. Sama seperti penggunaan modul yang menyimpan penulis modul 	yang berbeda dari harus khawatir tentang nama variabel global masing-masing, 	penggunaan nama modul bertitik menyimpan penulis paket multi-modul seperti 		NumPy atau Pillow karena harus khawatir tentang nama modul masing-masing.
+	  	Misalkan Anda ingin merancang koleksi modul ("paket") untuk penanganan seragam file suara dan data suara. Ada banyak format file suara yang berbeda (biasanya diakui oleh ekstensi mereka, misalnya: .wav, .aiff, .au), jadi Anda mungkin perlu membuat dan memelihara koleksi modul yang terus bertambah untuk konversi antara berbagai format file. Ada juga berbagai operasi yang Anda mungkin ingin lakukan pada data suara (seperti pencampuran, menambahkan gema, menerapkan fungsi equalizer, menciptakan efek stereo buatan), jadi selain itu Anda akan menulis aliran modul yang tidak pernah berakhir untuk melakukan operasi ini. Berikut adalah struktur yang mungkin untuk paket Anda (dinyatakan dalam bentuk sistem file hierarkis)
 
 	6.4.1 Importing * From a Packages
+		  - Sekarang apa yang terjadi ketika pengguna menulis dari sound.effects 		import *? Idealnya, orang akan berharap bahwa ini entah bagaimana 			keluar ke filesystem, menemukan submodul yang hadir dalam paket, dan 		mengimpor semuanya. Ini bisa memakan waktu lama dan mengimpor sub-modul 	mungkin memiliki efek samping yang tidak diinginkan yang seharusnya 		hanya terjadi ketika sub-modul secara eksplisit diimpor.
+		  	Satu-satunya solusi adalah untuk penulis paket untuk memberikan indeks eksplisit dari paket tersebut. Pernyataan impor menggunakan konvensi berikut: jika kode __init__.py paket menentukan daftar bernama __all__, maka akan dianggap daftar nama modul yang harus diimpor ketika dari impor paket * ditemukan. Terserah penulis paket untuk menjaga daftar ini tetap terbaru ketika versi baru dari paket tersebut dirilis. Penulis paket juga dapat memutuskan untuk tidak mendukungnya, jika mereka tidak melihat penggunaan untuk mengimpor * dari paket mereka. Misalnya, file suara / efek / __ init__.py
+			
 	6.4.2 Intra-package References
+		  - Ketika paket terstruktur menjadi sub-paket (seperti paket suara dalam 		contoh), Anda dapat menggunakan impor mutlak untuk merujuk ke paket 		submodul dari saudara kandung. Sebagai contoh, jika modul 					sound.filters.vocoder perlu menggunakan modul echo dalam paket 				sound.effects, ini dapat digunakan dari sound.effects import echo.
+		  	Anda juga dapat menulis relatif impor, dengan dari bentuk impor nama modul dari pernyataan impor. Impor ini menggunakan titik-titik utama untuk menunjukkan paket saat ini dan induk yang terlibat dalam impor relatif. Dari modul surround misalnya.
+
 	6.4.3 Packages in Multiple Directories
+		  - Paket mendukung satu lagi atribut khusus, __path__. Ini diinisialisasi 		menjadi daftar yang berisi nama direktori yang menyimpan __init__.py 		paket sebelum kode di file itu dijalankan. Variabel ini dapat 				dimodifikasi; hal ini mempengaruhi pencarian modul dan sub-paket di 		masa mendatang yang terkandung dalam paket.
+		  	Meskipun fitur ini tidak sering dibutuhkan, fitur ini dapat digunakan untuk memperluas set modul yang ditemukan dalam paket.
