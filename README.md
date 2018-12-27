@@ -61,6 +61,36 @@
   |    | 
   |    +-- src
   |    |
+  +--minggu-10
+  |    |
+  |    +-- teori - README.md
+  |    | 
+  |    +-- src
+  |    |
+  +--minggu-11
+  |    |
+  |    +-- teori - README.md
+  |    | 
+  |    +-- src
+  |    |
+  +--minggu-12
+  |    |
+  |    +-- teori - README.md
+  |    | 
+  |    +-- src
+  |    |
+  +--minggu-13
+  |    |
+  |    +-- teori - README.md
+  |    | 
+  |    +-- src
+  |    |
+  +--minggu-14
+  |    |
+  |    +-- teori - README.md
+  |    | 
+  |    +-- src
+  |    |
 ```
 
 # Peserta
